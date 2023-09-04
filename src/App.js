@@ -16,14 +16,11 @@ function App() {
   return (
     <>
       <main>
-        <div className='nueva_tarea'>
+        <div className='tarea'>
           <div className='box_nueva_tarea'>
             <h1>Nueva Tarea</h1>
             <CreateTodoButton/> 
           </div>                     
-        </div>
-
-        <div className='mis_tareas'>
           <div className='box_mis_tareas'>
             <TodoCounter completed={16} total={20}/>
             <TodoSearch />
@@ -37,7 +34,7 @@ function App() {
               ))}
             </TodoList>
           </div>
-        </div>
+        </div>       
       </main>      
     </>
   );

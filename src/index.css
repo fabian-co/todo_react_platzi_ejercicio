@@ -56,25 +56,14 @@ main {
   width: 100vw;
 }
 
-.nueva_tarea {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.tarea {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.mis_tareas {
-  height: 100vh;
-  width: 100vw;  
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-
-.box_nueva_tarea{
-  width: 80%;
-  height: 80%;
+.box_nueva_tarea{  
+  margin: 8% 5% 8% 10%;
   display: flex;
   flex-direction: column;
   border-radius: 20px;  
@@ -83,9 +72,8 @@ main {
   
 }
 
-.box_mis_tareas{
-  width: 80%;
-  height: 80%;
+.box_mis_tareas{  
+  margin: 8% 10% 8% 5%;
   display: flex;
   flex-direction: column;
   border-radius: 20px;  
