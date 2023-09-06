@@ -1,6 +1,8 @@
+import "./CreateTodoButton.css"
+
 function CreateTodoButton(){
     return(
-      <button>Crear Tarea</button>
+      <button className="crear_tarea_button">Crear Tarea</button>
     )
   }
 

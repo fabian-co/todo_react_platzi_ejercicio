@@ -1,0 +1,8 @@
+.crear_tarea_button{
+    border-style: none;
+    background-color: var(--orange);
+    font-family: Lexend Deca;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+}

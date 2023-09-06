@@ -1,8 +1,10 @@
+import "./TodoCounter.css"
+
 function TodoCounter({total, completed}){
     return(
-      <h1>
-        Has completado {completed} de {total} TODOs
-      </h1>
+      <h3>
+        Completada {completed} de {total}
+      </h3>
     )
   }
 
