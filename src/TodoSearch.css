@@ -1,8 +1,10 @@
-.inputNewTodo {
+.todo_search{
+    align-self: center;
     border-style: none;
     height: 50px;
+    width: 280px;
     margin-bottom: 24px;
-    background-color: #ECECEC;
+    background-color: white;
     border-radius: 20px;
     box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);  
     padding-left: 18px;
