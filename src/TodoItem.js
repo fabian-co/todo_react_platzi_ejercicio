@@ -4,9 +4,9 @@ import "./TodoItem.css"
 function TodoItem({text, completed}){  
   
     return(
-      <div className={`todo_item ${completed && "todo_item_completed"}`} >
+      <div className={`todo-item ${completed && "todo-item-completed"}`} >
         <li>
-          <label className="custom_checkbox">
+          <label className="custom-checkbox">
             <input type={`checkbox`} checked={completed}/>
             <span className="checkmark"> 
              {completed ? <span class="material-symbols-outlined cheked">done</span> : null}

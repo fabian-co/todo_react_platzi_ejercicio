@@ -29,7 +29,7 @@ h4{
   font-weight: 100;
 }
 
-.background_circulos{  
+.background-circulos{  
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -38,7 +38,7 @@ h4{
   overflow: hidden;
 }
 
-.circulo_naranja{
+.circulo-naranja{
   width: 600px;
   height: 600px;
   border-radius: 620px;
@@ -51,7 +51,7 @@ h4{
   position: absolute;
 }
 
-.circulo_azul{
+.circulo-azul{
   width: 600px;
   height: 600px;
   border-radius: 620px;
@@ -71,7 +71,7 @@ h4{
   z-index: 5;
 }
 
-.todo_app{
+.todo-app{
   height: 100vh;
   width: 100%;  
 }
@@ -84,7 +84,7 @@ h4{
   gap: 20px;
 }
 
-.box_nueva_tarea {  
+.box-nueva-tarea {  
   margin: 8% 5% 8% 10%; 
   padding: 0% 8%;
   display: flex;
@@ -93,12 +93,12 @@ h4{
   background-color: var(--white80);  
   box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);  
 }
-.crear_tarea_nueva{
+.crear-tarea-nueva{
   display: flex;
   flex-direction: column;
 }
 
-.box_mis_tareas{  
+.box-mis-tareas{  
   margin: 8% 10% 8% 5%; 
   padding: 0% 8%;
   display: flex;  
@@ -108,7 +108,7 @@ h4{
   box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);
 }
 
-.image_task_man{  
+.image-task-man{  
   height: 100%;
   padding: 24px 0;
   display: flex;
@@ -117,17 +117,47 @@ h4{
   align-items: center;
 }
 
-.image_task_man img{
+.image-task-man img{
   width: 80%;
   height: auto;  
   
 }
 
-.titulo_mis_tareas{
+.titulo-mis-tareas{
   text-align: center;
 }
 
-.todo_list ul {
+.todo-list{
+  margin-top: 24px;
+}
+
+.todo-list ul {
   padding: 0;
 }
 
+
+@media (max-width: 850px) {
+  h1 {
+    font-weight: 600;
+    font-size: 34px;
+    margin-bottom: 0;
+  }
+
+  .tarea {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;    
+  }
+
+  .image-task-man img{
+    display: none;
+  }
+
+  .box-nueva-tarea {  
+    margin: 8% 10% 4% 10%; 
+  }
+
+  .box-mis-tareas{ 
+    margin: 4% 10% 8% 10%; ; 
+  }
+}

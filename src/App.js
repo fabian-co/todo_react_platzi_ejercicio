@@ -17,24 +17,24 @@ const defaultTodos = [
 function App() {
   return (
     <>
-      <main className='todo_app'>
+      <main className='todo-app'>
         <div className='tarea'>
-          <div className='box_nueva_tarea'>
-            <div className='crear_tarea_nueva'>
+          <div className='box-nueva-tarea'>
+            <div className='crear-tarea-nueva'>
               <h1>Nueva Tarea</h1>
               <h4>Nombre de la tarea</h4>
               <NewTodo/>
               <CreateTodoButton/> 
             </div>
-            <div className='image_task_man'>
-              <img src={artImg} alt="Task_man"/>
+            <div className='image-task-man'>
+              <img src={artImg} alt="Task-man"/>
             </div>
           </div>                     
-          <div className='box_mis_tareas'>
-            <h1 className='titulo_mis_tareas'>Mis Tareas</h1>
+          <div className='box-mis-tareas'>
+            <h1 className='titulo-mis-tareas'>Mis Tareas</h1>
             <TodoCounter completed={1} total={4}/>
             <TodoSearch />
-            <div className='todo_list'>
+            <div className='todo-list'>
               <TodoList>
                 {defaultTodos.map(todo => (
                   <TodoItem 
