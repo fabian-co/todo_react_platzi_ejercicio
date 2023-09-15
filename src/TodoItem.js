@@ -1,12 +1,19 @@
 import "./TodoItem.css"
 
-function TodoItem({text, completado}){
+
+function TodoItem({text, completed}){  
+  
     return(
-      <div className="todo_item">
+      <div className={`todo_item ${completed && "todo_item_completed"}`} >
         <li>
-          <input className="checkbox_tarea" type="checkbox" name="tarea completada"></input>
+          <label className="custom_checkbox">
+            <input type={`checkbox`} checked={completed}/>
+            <span className="checkmark"> 
+             {completed ? <span class="material-symbols-outlined cheked">done</span> : null}
+            </span>            
+          </label>
           <p>{text}</p>
-          <span>X</span>
+          <span class="material-symbols-outlined">do_not_disturb_on</span>
         </li>        
       </div>
     )

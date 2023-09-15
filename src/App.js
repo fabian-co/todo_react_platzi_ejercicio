@@ -6,30 +6,33 @@ import { CreateTodoButton } from './CreateTodoButton';
 import { NewTodo }  from './NewTodo';
 import React from 'react';
 import artImg from "./img/Task.svg"
+
 const defaultTodos = [
   {text: "Cortar Tomates", completed: true},
-  {text: "Hacer la cama", completed: false},
-  {text: "Desayunar", completed: true},
-  {text: "Trabajar", completed: true},
+  {text: "Hacer la cama", completed: true},
+  {text: "Desayunar", completed: false},
+  {text: "Trabajar", completed: false},
 ]
 
 function App() {
   return (
     <>
-      <main>
+      <main className='todo_app'>
         <div className='tarea'>
           <div className='box_nueva_tarea'>
-            <h1>Nueva Tarea</h1>
-            <h4>Nombre de la tarea</h4>
-            <NewTodo/>
-            <CreateTodoButton/> 
+            <div className='crear_tarea_nueva'>
+              <h1>Nueva Tarea</h1>
+              <h4>Nombre de la tarea</h4>
+              <NewTodo/>
+              <CreateTodoButton/> 
+            </div>
             <div className='image_task_man'>
               <img src={artImg} alt="Task_man"/>
             </div>
           </div>                     
           <div className='box_mis_tareas'>
             <h1 className='titulo_mis_tareas'>Mis Tareas</h1>
-            <TodoCounter completed={16} total={20}/>
+            <TodoCounter completed={1} total={4}/>
             <TodoSearch />
             <div className='todo_list'>
               <TodoList>

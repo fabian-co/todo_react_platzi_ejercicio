@@ -10,6 +10,22 @@
     padding: 0 18px;
 }
 
+.todo_item_completed{
+    display: flex;
+    height: 50px;   
+    list-style: none;
+    align-content: center;      
+    margin-bottom: 24px;
+    background-color: var(--blue20);
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);  
+    padding: 0 18px;
+}
+
+.todo_item .custom_checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: var(--blue); /* Cambia el color de fondo cuando está marcado */
+}
+
 .todo_item li {
     display: flex;
     width: 100%;
@@ -21,4 +37,37 @@
     width: 100%;
     text-align: left;
     padding-left: 18px;
+}
+
+.todo_item_completed p {
+    width: 100%;
+    text-align: left;
+    padding-left: 18px;
+    color: gray;
+}
+
+.custom_checkbox input{
+    display: none;
+}
+
+.custom_checkbox .checkmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color: white; /* Color de fondo cuando no está marcado */
+    border: 2px solid var(--strokeBox);
+    border-radius: 4px;
+    margin-right: 10px;
+    color: white;
+}
+
+.custom_checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: var(--blue); /* Cambia el color de fondo cuando está marcado */
+}
+
+.material-symbols-outlined{
+    cursor: pointer;
 }

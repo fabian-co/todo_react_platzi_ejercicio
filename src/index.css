@@ -4,17 +4,37 @@
   --orangeBackground:  #F0A64610;
   --orange: #F0A646;
   --blue: #46B3F0;
+  --blue20: #46B3F020;
   --darkBlue: #1F74A3;
   --darkOrange: #A45F06;
   --taskBox: White;
   --strokeBox: #D9D9D9;
   --taskDeleteButton: #D9D9D9;
+  --white80: #ffffff80;
+  --grayCompletedText: #9b9b9b;
 }
 
-body {
-  background-color: var(--orangeBackground);
+body {    
   font-family: Lexend Deca;
-  margin: 0;
+  margin: 0;  
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 54px;
+  margin-bottom: 0;
+}
+
+h4{
+  font-weight: 100;
+}
+
+.background_circulos{  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  background-color: var(--orangeBackground);   
   overflow: hidden;
 }
 
@@ -44,58 +64,63 @@ body {
   position: absolute;
 }
 
-main {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-}
-
-.app {
-  position: absolute;
-  z-index: 5;  
-}
-
-h1 {
-  font-weight: 600;
-  font-size: 54px;
-  margin-bottom: 0;
-}
-
-h4{
-  font-weight: 100;
-}
-
-.tarea {
+.app {  
+  height: 100%;
   width: 100%;
+  position: absolute;
+  z-index: 5;
+}
+
+.todo_app{
+  height: 100vh;
+  width: 100%;  
+}
+
+.tarea {    
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;
 }
 
 .box_nueva_tarea {  
-  margin: 8% 5% 8% 10%;
+  margin: 8% 5% 8% 10%; 
   padding: 0% 8%;
   display: flex;
   flex-direction: column;
   border-radius: 20px;  
-  background-color: #ffffff80;  
+  background-color: var(--white80);  
   box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);  
+}
+.crear_tarea_nueva{
+  display: flex;
+  flex-direction: column;
 }
 
 .box_mis_tareas{  
-  margin: 8% 10% 8% 5%;
+  margin: 8% 10% 8% 5%; 
   padding: 0% 8%;
   display: flex;  
   flex-direction: column;
   border-radius: 20px;  
-  background-color: #ffffff80;  
+  background-color: var(--white80);  
   box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);
 }
 
-.image_task_man{
-  height: 490px;
+.image_task_man{  
+  height: 100%;
+  padding: 24px 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.image_task_man img{
+  width: 80%;
+  height: auto;  
+  
 }
 
 .titulo_mis_tareas{
@@ -104,6 +129,5 @@ h4{
 
 .todo_list ul {
   padding: 0;
-  justify-content: space-between; 
 }
 
