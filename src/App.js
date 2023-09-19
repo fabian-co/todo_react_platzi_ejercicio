@@ -9,12 +9,20 @@ import artImg from "./img/Task.svg"
 
 const defaultTodos = [
   {text: "Cortar Tomates", completed: true},
-  {text: "Hacer la cama", completed: true},
-  {text: "Desayunar", completed: false},
+  {text: "Hacer la cama", completed: false},
+  {text: "Desayunar", completed: true},
   {text: "Trabajar", completed: false},
 ]
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState("")
+  console.log("los usuarios estan buscando la tarea: " + searchValue)
+
+  const [todos, setTodos] = React.useState(defaultTodos)
+
+  const completedTodos = todos.filter( todo => !!todo.completed).length
+  const totalToods = todos.length
+
   return (
     <>
       <main className='todo-app'>
@@ -32,8 +40,11 @@ function App() {
           </div>                     
           <div className='box-mis-tareas'>
             <h1 className='titulo-mis-tareas'>Mis Tareas</h1>
-            <TodoCounter completed={1} total={4}/>
-            <TodoSearch />
+            <TodoCounter completed={completedTodos} total={totalToods}/>
+            <TodoSearch 
+              searchValue = {searchValue}
+              setSearchValue = {setSearchValue}
+            />
             <div className='todo-list'>
               <TodoList>
                 {defaultTodos.map(todo => (
