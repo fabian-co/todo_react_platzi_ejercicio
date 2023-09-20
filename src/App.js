@@ -12,6 +12,11 @@ const defaultTodos = [
   {text: "Hacer la cama", completed: false},
   {text: "Desayunar", completed: true},
   {text: "Trabajar", completed: false},
+  {text: "Comer", completed: false},
+  {text: "Cenar", completed: false},
+  {text: "Caminar", completed: false},
+  {text: "Estudiar", completed: false},
+  {text: "Repasar", completed: false},
 ]
 
 function App() {
@@ -22,6 +27,14 @@ function App() {
 
   const completedTodos = todos.filter( todo => !!todo.completed).length
   const totalToods = todos.length
+
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const textTodo = todo.text.toLocaleLowerCase()
+      const textSearch = searchValue.toLocaleLowerCase()
+     return textTodo.includes(textSearch)
+    }
+  )
 
   return (
     <>
@@ -45,15 +58,17 @@ function App() {
               searchValue = {searchValue}
               setSearchValue = {setSearchValue}
             />
-            <div className='todo-list'>
-              <TodoList>
-                {defaultTodos.map(todo => (
-                  <TodoItem 
-                  key={todo.text}
-                  text={todo.text}
-                  completed = {todo.completed}/>
-                ))}
-              </TodoList>              
+            <div className='todo-list-container'>
+              <div className='todo-list'>
+                <TodoList>
+                  {searchedTodos.map(todo => (
+                    <TodoItem 
+                    key={todo.text}
+                    text={todo.text}
+                    completed = {todo.completed}/>
+                  ))}
+                </TodoList>              
+              </div>
             </div>
           </div>
         </div>       

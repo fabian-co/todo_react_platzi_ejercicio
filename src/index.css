@@ -105,7 +105,7 @@ h4{
   flex-direction: column;
   border-radius: 20px;  
   background-color: var(--white80);  
-  box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);      
 }
 
 .image-task-man{  
@@ -127,9 +127,17 @@ h4{
   text-align: center;
 }
 
-.todo-list{
-  margin-top: 24px;
+.todo-list-container{
+  height: 530px;
+  margin-top: 24px;  
 }
+
+.todo-list{
+  height: 100%;
+  padding: 0 8px;
+  overflow: auto;
+}
+
 
 .todo-list ul {
   padding: 0;
@@ -159,5 +167,13 @@ h4{
 
   .box-mis-tareas{ 
     margin: 4% 10% 8% 10%; ; 
+  }
+
+  .todo-list-container{
+    height: auto; 
+  }
+
+  .todo-list{    
+    overflow:hidden;
   }
 }
