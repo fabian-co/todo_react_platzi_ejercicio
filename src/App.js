@@ -16,7 +16,7 @@ const defaultTodos = [
   {text: "Cenar", completed: false},
   {text: "Caminar", completed: false},
   {text: "Estudiar", completed: false},
-  {text: "Repasar", completed: false},
+  {text: "Repasár", completed: false},
 ]
 
 function App() {
@@ -30,8 +30,9 @@ function App() {
 
   const searchedTodos = todos.filter(
     (todo) => {
-      const textTodo = todo.text.toLocaleLowerCase()
-      const textSearch = searchValue.toLocaleLowerCase()
+      const sinTilde = (text) => {return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');}
+      const textTodo = sinTilde(todo.text.toLocaleLowerCase())
+      const textSearch = sinTilde(searchValue.toLocaleLowerCase())
      return textTodo.includes(textSearch)
     }
   )
