@@ -37,6 +37,24 @@ function App() {
     }
   )
 
+  const completeTodo = (text) => {
+    const NewTodos = [...todos]
+    const todoIndex = NewTodos.findIndex(
+      (todo) => todo.text === text
+    )
+    NewTodos[todoIndex].completed = true
+    setTodos(NewTodos)
+  }
+
+  const deleteTodo = (text) => {
+    const NewTodos = [...todos]
+    const todoIndex = NewTodos.findIndex(
+      (todo) => todo.text === text
+    )
+    NewTodos.splice(todoIndex, 1)
+    setTodos(NewTodos)
+  }
+
   return (
     <>
       <main className='todo-app'>
@@ -64,9 +82,12 @@ function App() {
                 <TodoList>
                   {searchedTodos.map(todo => (
                     <TodoItem 
-                    key={todo.text}
-                    text={todo.text}
-                    completed = {todo.completed}/>
+                      key={todo.text}
+                      text={todo.text}
+                      completed = {todo.completed}
+                      onComplete = {() => completeTodo(todo.text)}
+                      onDelete = {() => deleteTodo(todo.text)}
+                    />                    
                   ))}
                 </TodoList>              
               </div>

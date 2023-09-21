@@ -17,8 +17,8 @@ function TodoSearch({
               setSearchValue(event.target.value)              
             }}
           />
-          <div class="search-simbol">
-            <span class="material-symbols-outlined">search</span>
+          <div className="search-simbol">
+            <span className="material-symbols-outlined">search</span>
           </div>
         </div>
       </div>
