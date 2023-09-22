@@ -7,23 +7,34 @@ import { NewTodo }  from './NewTodo';
 import React from 'react';
 import artImg from "./img/Task.svg"
 
-const defaultTodos = [
-  {text: "Cortar Tomates", completed: true},
-  {text: "Hacer la cama", completed: false},
-  {text: "Desayunar", completed: true},
-  {text: "Trabajar", completed: false},
-  {text: "Comer", completed: false},
-  {text: "Cenar", completed: false},
-  {text: "Caminar", completed: false},
-  {text: "Estudiar", completed: false},
-  {text: "Repasár", completed: false},
-]
+// const defaultTodos = [
+//   {text: "Cortar Tomates", completed: true},
+//   {text: "Hacer la cama", completed: false},
+//   {text: "Desayunar", completed: true},
+//   {text: "Trabajar", completed: false},
+//   {text: "Comer", completed: false},
+//   {text: "Cenar", completed: false},
+//   {text: "Caminar", completed: false},
+//   {text: "Estudiar", completed: false},
+//   {text: "Repasár", completed: false},
+// ]
 
 function App() {
+  const localStorageTodo = localStorage.getItem("todo_v1")
+
+  let parsedTodos
+
+  if(!localStorageTodo) {
+    localStorage.setItem("todo_v1", JSON.stringify([]))
+    parsedTodos = []
+  } else {
+    parsedTodos = JSON.parse(localStorageTodo)
+  }
+
   const [searchValue, setSearchValue] = React.useState("")
   console.log("los usuarios estan buscando la tarea: " + searchValue)
 
-  const [todos, setTodos] = React.useState(defaultTodos)
+  const [todos, setTodos] = React.useState(parsedTodos)
 
   const completedTodos = todos.filter( todo => !!todo.completed).length
   const totalToods = todos.length
@@ -37,13 +48,27 @@ function App() {
     }
   )
 
+  const saveTodos = (newTodos) => {
+    localStorage.setItem("todo_v1", JSON.stringify(newTodos))
+    setTodos(newTodos)
+  }
+
   const completeTodo = (text) => {
     const NewTodos = [...todos]
     const todoIndex = NewTodos.findIndex(
       (todo) => todo.text === text
     )
     NewTodos[todoIndex].completed = true
-    setTodos(NewTodos)
+    saveTodos(NewTodos)
+  }
+
+  const unCompleteTodo = (text) => {
+    const NewTodos = [...todos]
+    const todoIndex = NewTodos.findIndex(
+      (todo) => todo.text === text
+    )
+    NewTodos[todoIndex].completed = false
+    saveTodos(NewTodos)
   }
 
   const deleteTodo = (text) => {
@@ -52,7 +77,7 @@ function App() {
       (todo) => todo.text === text
     )
     NewTodos.splice(todoIndex, 1)
-    setTodos(NewTodos)
+    saveTodos(NewTodos)
   }
 
   return (
@@ -86,6 +111,7 @@ function App() {
                       text={todo.text}
                       completed = {todo.completed}
                       onComplete = {() => completeTodo(todo.text)}
+                      unCompleteTodo = {(() => unCompleteTodo(todo.text))}
                       onDelete = {() => deleteTodo(todo.text)}
                     />                    
                   ))}

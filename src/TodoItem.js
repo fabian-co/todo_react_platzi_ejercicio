@@ -2,13 +2,22 @@ import "./TodoItem.css"
 import React from 'react';
 
 
-function TodoItem({text, completed, onComplete, onDelete}){  
+function TodoItem({text, completed, onComplete, onDelete, unCompleteTodo}){  
 
-    //funcion para invertir el estado true o false en este caso usado para el checked y classname todoitem
+    //estado para invertir el estado true o false en este caso usado para el checked y classname todoitem
     const [isChecked, setIsChecked] = React.useState(completed)
 
     const handleCheckboxChange = () => {
       setIsChecked(!isChecked)
+    }
+
+    //funcion para actualizar el check en el estado
+    const handleClick = () => {
+      if (!isChecked){
+        onComplete()
+      } else {
+        unCompleteTodo()
+      }
     }
   
     return(
@@ -17,7 +26,7 @@ function TodoItem({text, completed, onComplete, onDelete}){
           <label className="custom-checkbox">
             <input
              type={`checkbox`}
-             onClick={onComplete}   
+             onClick={handleClick}   
              checked={isChecked}
              onChange={handleCheckboxChange}
             />
