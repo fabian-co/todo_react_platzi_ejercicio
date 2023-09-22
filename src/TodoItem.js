@@ -1,19 +1,28 @@
 import "./TodoItem.css"
+import React from 'react';
 
 
 function TodoItem({text, completed, onComplete, onDelete}){  
+
+    //funcion para invertir el estado true o false en este caso usado para el checked y classname todoitem
+    const [isChecked, setIsChecked] = React.useState(completed)
+
+    const handleCheckboxChange = () => {
+      setIsChecked(!isChecked)
+    }
   
     return(
-      <div className={`todo-item ${completed && "todo-item-completed"}`} >
+      <div className={`todo-item ${isChecked && "todo-item-completed"}`} >
         <li>
           <label className="custom-checkbox">
             <input
              type={`checkbox`}
              onClick={onComplete}   
-             checked={completed}
+             checked={isChecked}
+             onChange={handleCheckboxChange}
             />
             <span className="checkmark"> 
-             {completed ? <span className="material-symbols-outlined cheked">done</span> : null}
+             {isChecked ? <span className="material-symbols-outlined cheked">done</span> : null}
             </span>            
           </label>
           <p>{text}</p>
