@@ -21,7 +21,7 @@ function TodoItem({text, completed, onComplete, onDelete, unCompleteTodo}){
     }
   
     return(
-      <div className={`todo-item ${isChecked && "todo-item-completed"}`} >
+      <div className={`todo-item ${isChecked ? "todo-item-completed" : ""}`} >
         <li>
           <label className="custom-checkbox">
             <input

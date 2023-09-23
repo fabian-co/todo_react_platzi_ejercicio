@@ -19,25 +19,37 @@ import artImg from "./img/Task.svg"
 //   {text: "Repasár", completed: false},
 // ]
 
-function App() {
-  const localStorageTodo = localStorage.getItem("todo_v1")
+function useLocalStorage(itemName, initialValue) {
+  
+  const localStorageItem = localStorage.getItem(itemName)
 
-  let parsedTodos
+  let parsedItem
 
-  if(!localStorageTodo) {
-    localStorage.setItem("todo_v1", JSON.stringify([]))
-    parsedTodos = []
+  if(!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue))
+    parsedItem = initialValue
   } else {
-    parsedTodos = JSON.parse(localStorageTodo)
+    parsedItem = JSON.parse(localStorageItem)
   }
 
-  const [searchValue, setSearchValue] = React.useState("")
-  console.log("los usuarios estan buscando la tarea: " + searchValue)
+  const [item, setItem] = React.useState(parsedItem)
+  
+  const saveItem = (newItem) => {
+    localStorage.setItem(itemName, JSON.stringify(newItem))
+    setItem(newItem)  
+  }
 
-  const [todos, setTodos] = React.useState(parsedTodos)
+  return [item, saveItem]
+}
 
+function App() {  
+  
+  const [todos, saveTodos] = useLocalStorage("todo_v1", [])
+  
   const completedTodos = todos.filter( todo => !!todo.completed).length
   const totalToods = todos.length
+  
+  const [searchValue, setSearchValue] = React.useState("")
 
   const searchedTodos = todos.filter(
     (todo) => {
@@ -47,11 +59,6 @@ function App() {
      return textTodo.includes(textSearch)
     }
   )
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem("todo_v1", JSON.stringify(newTodos))
-    setTodos(newTodos)
-  }
 
   const completeTodo = (text) => {
     const NewTodos = [...todos]
