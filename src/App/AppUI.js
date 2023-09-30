@@ -4,9 +4,14 @@ import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { NewTodo }  from '../NewTodo';
+import { LoadingTodo } from "../LoadingTodo"
+import { ErrorTodo } from "../ErrorTodo"
+import { FirstTodo } from "../FirstTodo"
 import artImg from "../img/Task.svg"
 
 function AppUI ({
+    loading,
+    error,
     completedTodos,
     totalToods,
     searchValue,
@@ -41,6 +46,10 @@ function AppUI ({
                 <div className='todo-list-container'>
                   <div className='todo-list'>
                     <TodoList>
+                      {loading && <LoadingTodo/>}
+                      {error && <ErrorTodo/>}
+                      {(!loading && searchedTodos === 0) && <FirstTodo/>}
+
                       {searchedTodos.map(todo => (
                         <TodoItem 
                           key={todo.text}
