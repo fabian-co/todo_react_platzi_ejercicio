@@ -19,9 +19,11 @@ function TodoItem({text, completed, onComplete, onDelete, unCompleteTodo}){
         unCompleteTodo()
       }
     }
+
+    const checkedTodo = `todo-item ${isChecked ? "todo-item-completed" : ""}`
   
     return(
-      <div className={`todo-item ${isChecked ? "todo-item-completed" : ""}`} >
+      <div className={checkedTodo} >
         <li>
           <label className="custom-checkbox">
             <input
