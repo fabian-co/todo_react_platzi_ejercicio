@@ -1,0 +1,29 @@
+.crear-tarea-nueva .formTodo{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-new-todo {
+    border-style: none;
+    height: 50px;
+    margin-bottom: 24px;
+    background-color: #ECECEC;
+    border-radius: 20px;
+    box-shadow: 0px 4px 15px 0px rgba(0,0,0,0.1);  
+    padding-left: 18px;
+    font-family: Lexend Deca;
+}
+
+.crear_tarea_button{
+    border-style: none;
+    background-color: var(--orange);
+    font-family: Lexend Deca;
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.crear_tarea_button:active {
+    background-color: var(--darkOrange);
+}

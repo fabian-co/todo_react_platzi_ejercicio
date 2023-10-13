@@ -3,12 +3,11 @@ import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { NewTodo }  from '../NewTodo';
 import { LoadingTodo } from "../LoadingTodo"
 import { ErrorTodo } from "../ErrorTodo"
 import { FirstTodo } from "../FirstTodo"
 import { TodoContext } from '../TodoContext';
+import { CreateTodo } from '../CreateTodo';
 import artImg from "../img/Task.svg"
 
 function AppUI () {
@@ -18,12 +17,7 @@ function AppUI () {
       <main className='todo-app'>
         <div className='tarea'>
           <div className='box-nueva-tarea'>
-            <div className='crear-tarea-nueva'>
-              <h1>Nueva Tarea</h1>
-              <h4>Nombre de la tarea</h4>
-              <NewTodo/>
-              <CreateTodoButton/> 
-            </div>
+            <CreateTodo/>
             <div className='image-task-man'>
               <img src={artImg} alt="Task-man"/>
             </div>
@@ -35,12 +29,13 @@ function AppUI () {
             <TodoSearch/>
 
             <div className='todo-list-container'>
+              
+              {(!loading && searchedTodos.length === 0) && <FirstTodo/>}
               <div className='todo-list'>
 
                 <TodoList>
                   {loading && <LoadingTodo/>}
                   {error && <ErrorTodo/>}
-                  {(!loading && searchedTodos === 0) && <FirstTodo/>}
 
                   {searchedTodos.map(todo => (
                     <TodoItem 

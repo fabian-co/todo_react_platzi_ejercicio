@@ -52,6 +52,12 @@ function TodoProvider( {children} ) {
         NewTodos.splice(todoIndex, 1)
         saveTodos(NewTodos)
       }
+
+      const addTodo = (text) => {
+        const NewTodos = [...todos]
+        NewTodos.push({text, completed: false})
+        saveTodos(NewTodos)
+      }
     return(
         <TodoContext.Provider value={{
             loading,
@@ -64,6 +70,7 @@ function TodoProvider( {children} ) {
             completeTodo,
             unCompleteTodo,
             deleteTodo,
+            addTodo,
         }}>
             {children}
         </TodoContext.Provider>

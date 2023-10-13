@@ -1,7 +1,11 @@
+import "./FirstTodo.css"
+
 function FirstTodo() {
     return (
-        <>            
-            <p>¡Crea tu primer TODO!</p>
+        <>     
+            <div className="firstTodo">
+                <p >¡Crea tu primer Tarea!</p>
+            </div>       
         </>
     )
 }

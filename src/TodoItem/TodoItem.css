@@ -1,6 +1,8 @@
 .todo-item {
     display: flex;
-    height: 50px;   
+    min-height: 50px; 
+    overflow-wrap: break-word;
+    overflow: auto;  
     list-style: none;
     align-content: center;      
     margin-bottom: 24px;
