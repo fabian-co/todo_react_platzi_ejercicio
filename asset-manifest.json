@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/todo_react_platzi_ejercicio/static/css/main.9c70e3db.css",
+    "main.js": "/todo_react_platzi_ejercicio/static/js/main.b8d9087d.js",
+    "static/media/Task.svg": "/todo_react_platzi_ejercicio/static/media/Task.977356b905e0e68d68a30360d7f3343d.svg",
+    "index.html": "/todo_react_platzi_ejercicio/index.html",
+    "main.9c70e3db.css.map": "/todo_react_platzi_ejercicio/static/css/main.9c70e3db.css.map",
+    "main.b8d9087d.js.map": "/todo_react_platzi_ejercicio/static/js/main.b8d9087d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c70e3db.css",
+    "static/js/main.b8d9087d.js"
+  ]
+}
