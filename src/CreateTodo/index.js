@@ -1,11 +1,8 @@
 import React from "react"
 import "./CreateTodo.css"
-import { TodoContext } from "../TodoContext"
 
 
-
-function CreateTodo() {
-    const {addTodo} = React.useContext(TodoContext)
+function CreateTodo({addTodo}) {
     const [newTodoValue, setNewTodoValue] = React.useState("")
 
     const onChange = (event) => {
