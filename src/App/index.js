@@ -7,9 +7,9 @@ import { TodoItem } from '../TodoItem';
 import { LoadingTodo } from "../LoadingTodo"
 import { ErrorTodo } from "../ErrorTodo"
 import { FirstTodo } from "../FirstTodo"
-import { TodoContext } from './useTodos';
 import { CreateTodo } from '../CreateTodo';
 import artImg from "../img/Task.svg"
+import { EmptySearch } from '../EmptySearch';
 
 // const defaultTodos = [
 //   {text: "Cortar Tomates", completed: true},
@@ -63,14 +63,21 @@ function App() {
 
             <div className='todo-list-container'>
               
-              {(!loading && searchedTodos.length === 0) && <FirstTodo/>}
+              
               <div className='todo-list'>
 
-                <TodoList>
-                  {loading && <LoadingTodo/>}
-                  {error && <ErrorTodo/>}
+                <TodoList
+                  error = {error}
+                  loading = {loading}
+                  searchedTodos = {searchedTodos}
+                  totalTodos = {totalToods}
+                  searchText = {searchValue}
 
-                  {searchedTodos.map(todo => (
+                  onError={() => <ErrorTodo/>}
+                  onLoading={() => <LoadingTodo/>}
+                  onEmptyTodos={() => <FirstTodo/>}
+                  onEmptySearchTodos = {(searchText) => <EmptySearch addTodo = {addTodo} searchText = {searchText} />}
+                  render={todo => (
                     <TodoItem 
                       key={todo.text}
                       text={todo.text}
@@ -78,10 +85,9 @@ function App() {
                       onComplete = {() => completeTodo(todo.text)}
                       unCompleteTodo = {(() => unCompleteTodo(todo.text))}
                       onDelete = {() => deleteTodo(todo.text)}
-                    />                    
-                  ))}
-                </TodoList> 
-                 
+                    />  
+                  )}
+                />                 
               </div>
             </div>
           </div>
